@@ -7,7 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/devel:$CMAKE_PREFIX_PATH"
 export PWD="/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/src:$ROS_PACKAGE_PATH"
