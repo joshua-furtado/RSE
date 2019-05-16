@@ -2,9 +2,9 @@
 
 namespace gazebo
 {
-  class WorldPluginMyRobot : public WorldPlugin
+  class WorldPluginUW : public WorldPlugin
   {
-    public: WorldPluginMyRobot() : WorldPlugin()
+    public: WorldPluginUW() : WorldPlugin()
             {
               printf("Welcome to Joshua's World!\n");
             }
@@ -13,5 +13,5 @@ namespace gazebo
             {
             }
   };
-  GZ_REGISTER_WORLD_PLUGIN(WorldPluginMyRobot)
+  GZ_REGISTER_WORLD_PLUGIN(WorldPluginUW)
 }
