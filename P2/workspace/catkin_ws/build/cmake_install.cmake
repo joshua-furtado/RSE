@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/build/my_robot/cmake_install.cmake")
+  include("/home/nvidia/Documents/git/RSE/P2/workspace/catkin_ws/build/ball_chaser/cmake_install.cmake")
 
 endif()
 
