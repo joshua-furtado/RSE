@@ -31,22 +31,30 @@ void process_image_callback(const sensor_msgs::Image img)
     int mid_count = 0; 
     int right_count = 0;
     int idx = 0;
-    int left_thresh = img.step / 3;
-    int mid_thresh = 2 * img.step / 3;
+    int left_thresh = img.width / 3;
+    int mid_thresh = 2 * img.width / 3;
 
-    for (int i = 0; i < img.height * img.step; i++) {
-        if ((img.data[i] <= white_pixel) && (img.data[i] >= lower_white_pixel)) {
-            idx = i % img.step;
-            if (idx < left_thresh) {
-                left_count += 1;
-            }
-            else if (idx < mid_thresh) {
-                mid_count += 1;
-            }
-            else {
-                right_count += 1;
-            }
-        }
+    int R = 0;
+    int G = 0;
+    int B = 0;
+
+    for (int i = 0; i < img.height; i++) {
+	for (int j = 0; j < img.width; j++) {
+		R = img.data[i*img.step + j*3];
+		G = img.data[i*img.step + j*3 + 1];
+		B = img.data[i*img.step + j*3 + 2];
+		if ((R == white_pixel) && (G == white_pixel) && (B == white_pixel)){
+			if (j < left_thresh) {
+                		left_count += 1;
+            		}
+            		else if (j < mid_thresh) {
+                		mid_count += 1;
+            		}
+            		else {
+                		right_count += 1;
+            		}
+		}
+	}
     }
 
     if (left_count || mid_count || right_count){
