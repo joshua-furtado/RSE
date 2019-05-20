@@ -68,17 +68,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -89,6 +78,28 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -122,27 +133,16 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /root/RSE/L1/workspace/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/RSE/L1/workspace/catkin_ws/build/CMakeFiles /root/RSE/L1/workspace/catkin_ws/build/turtlebot/turtlebot/CMakeFiles/progress.marks
-	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot/turtlebot/all
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/RSE/L1/workspace/catkin_ws/build/CMakeFiles /root/RSE/L1/workspace/catkin_ws/build/main/CMakeFiles/progress.marks
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/RSE/L1/workspace/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot/turtlebot/clean
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main/clean
 .PHONY : clean
 
 # The main clean target
@@ -152,18 +152,33 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot/turtlebot/preinstall
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 turtlebot/turtlebot/preinstall
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
 	cd /root/RSE/L1/workspace/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+main/CMakeFiles/_catkin_empty_exported_target.dir/rule:
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : main/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+# Convenience name for target.
+_catkin_empty_exported_target: main/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	cd /root/RSE/L1/workspace/catkin_ws/build && $(MAKE) -f main/CMakeFiles/_catkin_empty_exported_target.dir/build.make main/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
 
 # Help Target
 help:
@@ -172,12 +187,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install"
-	@echo "... edit_cache"
 	@echo "... install/strip"
+	@echo "... rebuild_cache"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... edit_cache"
 	@echo "... list_install_components"
 	@echo "... test"
 	@echo "... install/local"
-	@echo "... rebuild_cache"
 .PHONY : help
 
 
