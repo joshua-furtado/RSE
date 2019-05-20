@@ -2,4 +2,4 @@
 source_root_dir = "/root/RSE/L1/workspace/catkin_ws/src"
 whitelisted_packages = "".split(';') if "" != "" else []
 blacklisted_packages = "".split(';') if "" != "" else []
-underlay_workspaces = "/root/RSE/L1/workspace/catkin_ws/devel;/opt/ros/kinetic".split(';') if "/root/RSE/L1/workspace/catkin_ws/devel;/opt/ros/kinetic" != "" else []
+underlay_workspaces = "/opt/ros/kinetic".split(';') if "/opt/ros/kinetic" != "" else []
