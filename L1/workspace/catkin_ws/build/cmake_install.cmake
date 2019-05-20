@@ -121,6 +121,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/root/RSE/L1/workspace/catkin_ws/build/turtlebot_simulator/turtlebot_simulator/cmake_install.cmake")
   include("/root/RSE/L1/workspace/catkin_ws/build/turtlebot_simulator/turtlebot_stage/cmake_install.cmake")
   include("/root/RSE/L1/workspace/catkin_ws/build/turtlebot_simulator/turtlebot_stdr/cmake_install.cmake")
+  include("/root/RSE/L1/workspace/catkin_ws/build/robot_pose_ekf/cmake_install.cmake")
 
 endif()
 
