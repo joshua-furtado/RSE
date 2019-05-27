@@ -1,5 +1,5 @@
 # P3
-##Where Am I - Summary of Tasks
+## Where Am I - Summary of Tasks
 
 In this project, you will learn to utilize ROS AMCL package to accurately localize a mobile robot inside a map in the Gazebo simulation environments.
 
@@ -8,7 +8,7 @@ Over the course of this lesson, you will learn several aspects of robotic softwa
 * Utilize the ROS AMCL package and the Tele-Operation / Navigation Stack to localize the robot
 * Explore, add, and tune specific parameters corresponding to each package to achieve the best possible localization results
 
-##Native Installation
+## Native Installation
 
 If you are working with a native ROS installation or using a VM, some of the following package might need to be installed. You could install them as shown below:
 
