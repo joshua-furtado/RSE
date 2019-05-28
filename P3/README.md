@@ -18,3 +18,9 @@ sudo apt-get install ros-kinetic-map-server
 sudo apt-get install ros-kinetic-move-base
 sudo apt-get install ros-kinetic-amcl
 ```
+
+Install PGM Map Creator dependencies. We need libignition-math2-dev and protobuf-compiler to compile the map creator:
+
+```bash
+sudo apt-get install libignition-math2-dev protobuf-compiler
+```
