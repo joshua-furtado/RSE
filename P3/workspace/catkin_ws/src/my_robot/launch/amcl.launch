@@ -11,9 +11,23 @@
   		<param name="base_frame_id" value="robot_footprint"/>
   		<param name="global_frame_id" value="map"/>
 
-		<!-- If you choose to define initial pose here -->
-		<param name="initial_pose_x" value="-9.646941"/>
-		<param name="initial_pose_y" value="-12.985778"/>
+		<param name="min_particles" value="25"/>
+		<param name="min_particles" value="250"/>
+
+		<param name="update_min_a" value="0.1"/>
+		<param name="update_min_d" value="0.2"/>
+
+		<param name="laser_max_beams" value="25"/>
+
+		<param name="laser_z_hit" value="0.95"/>
+		<param name="laser_z_rand" value="0.05"/>
+
+		<param name="odom_model_type" value="diff-corrected"/>
+		<param name="odom_alpha1" value="0.05"/>
+		<param name="odom_alpha2" value="0.05"/>
+		<param name="odom_alpha3" value="0.05"/>
+		<param name="odom_alpha4" value="0.05"/>
+		
   	</node>
 
 </launch>
