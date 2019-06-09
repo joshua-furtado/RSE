@@ -1,4 +1,4 @@
-#L2
+# L2
 Lab: Monte Carlo Localization algorithm in C++
 
 In this lab, you will be able to observe the `MCL` in action through the generated images. 
