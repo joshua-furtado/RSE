@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/workspace/RSE/L4/workspace/catkin_ws/devel/setup.sh
