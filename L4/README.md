@@ -39,6 +39,7 @@ Edit the rviz configuration as follows:
   - Add a **RobotModel**
   - Add a **camera** and select the /camera/rgb/image_raw topic
   - Add a **map** and select the /map topic
+
 Now, map the environment by driving your robot using keyboard commands.
 
 ## Terminal 5
