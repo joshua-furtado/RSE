@@ -21,9 +21,9 @@
 
       <!-- RTAB-Map Inputs -->
       <remap from="scan" to="/scan"/>
-      <remap from="rgb/image" to="/camera/rgb/image_raw"/>
-      <remap from="depth/image" to="/camera/depth/image_raw"/>
-      <remap from="rgb/camera_info" to="/camera/rgb/camera_info"/>
+      <remap from="rgb/image" to="$(arg rgb_topic)"/>
+      <remap from="depth/image" to="$(arg depth_topic)"/>
+      <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
 
       <!-- RTAB-Map Output -->
       <remap from="grid_map" to="/map"/>
