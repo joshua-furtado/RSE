@@ -1,5 +1,5 @@
 #!/bin/sh
-xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=worlds/UdacityOffice.world " &
+xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; cp /home/workspace/RSE/P5/workspace/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/worlds/UdacityOffice.world /usr/share/gazebo-7/worlds/UdacityOffice.world; roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=worlds/UdacityOffice.world " &
 sleep 5
 xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; roslaunch turtlebot_teleop keyboard_teleop.launch " &
 sleep 2
