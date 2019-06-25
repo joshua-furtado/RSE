@@ -1,12 +1,31 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
+#include <nav_msgs/Odometry.h>
+#include <math.h>
+
+float pose_x = 0;
+float pose_y = 0;
+
+float Euclidian_dist(float goal_x, float goal_y)
+{
+  float distance = 0;
+  distance = sqrt( pow((pose_x - goal_x),2) + pow((pose_y - goal_y),2) );
+  return distance;
+}
+
+void odom_callback(const nav_msgs::Odometry::ConstPtr& robot_odom)
+{
+  pose_x = robot_odom->pose.pose.position.x;
+  pose_y = robot_odom->pose.pose.position.y;
+}
 
 int main( int argc, char** argv )
 {
-  ros::init(argc, argv, "add_markers_mod");
+  ros::init(argc, argv, "add_markers_service");
   ros::NodeHandle n;
   ros::Rate r(1);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+  ros::Subscriber sub = n.subscribe("/odom", 1000, odom_callback);
 
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
@@ -37,9 +56,9 @@ int main( int argc, char** argv )
     marker.pose.orientation.w = 1.0;
 
     // Set the scale of the marker -- 1x1x1 here means 1m on a side
-    marker.scale.x = 1.0;
-    marker.scale.y = 1.0;
-    marker.scale.z = 1.0;
+    marker.scale.x = 0.25;
+    marker.scale.y = 0.25;
+    marker.scale.z = 0.25;
 
     // Set the color -- be sure to set alpha to something non-zero!
     marker.color.r = 0.0f;
@@ -59,15 +78,14 @@ int main( int argc, char** argv )
       ROS_WARN_ONCE("Please create a subscriber to the marker");
       sleep(1);
     }
-    marker_pub.publish(marker);
-    ros::Duration(5.0).sleep();
+
+    while (Euclidian_dist(marker.pose.position.x,marker.pose.position.y) > 0.2)
+    {
+      marker_pub.publish(marker);
+      ros::spinOnce();
+    }
 
     marker.action = visualization_msgs::Marker::DELETE;
-    marker_pub.publish(marker);
-    ros::Duration(5.0).sleep();
-
-    marker.action = visualization_msgs::Marker::ADD;
-
     marker.pose.position.x = 6.0;
     marker.pose.position.y = -6.0;
     marker.pose.position.z = 0;
@@ -75,6 +93,13 @@ int main( int argc, char** argv )
     marker.pose.orientation.y = 0.0;
     marker.pose.orientation.z = 0.0;
     marker.pose.orientation.w = 1.0;
+    while (Euclidian_dist(marker.pose.position.x,marker.pose.position.y) > 0.2)
+    {
+      marker_pub.publish(marker);
+      ros::spinOnce();
+    }
+
+    marker.action = visualization_msgs::Marker::ADD;
     marker_pub.publish(marker);
 
 }

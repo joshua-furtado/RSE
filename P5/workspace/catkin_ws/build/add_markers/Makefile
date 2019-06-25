@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+add_markers/CMakeFiles/add_markers_service.dir/rule:
+	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 add_markers/CMakeFiles/add_markers_service.dir/rule
+.PHONY : add_markers/CMakeFiles/add_markers_service.dir/rule
+
+# Convenience name for target.
+add_markers_service: add_markers/CMakeFiles/add_markers_service.dir/rule
+
+.PHONY : add_markers_service
+
+# fast build rule for target.
+add_markers_service/fast:
+	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f add_markers/CMakeFiles/add_markers_service.dir/build.make add_markers/CMakeFiles/add_markers_service.dir/build
+.PHONY : add_markers_service/fast
+
+# Convenience name for target.
 add_markers/CMakeFiles/add_markers_mod.dir/rule:
 	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 add_markers/CMakeFiles/add_markers_mod.dir/rule
 .PHONY : add_markers/CMakeFiles/add_markers_mod.dir/rule
@@ -626,6 +641,33 @@ src/add_markers_mod.cpp.s:
 	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f add_markers/CMakeFiles/add_markers_mod.dir/build.make add_markers/CMakeFiles/add_markers_mod.dir/src/add_markers_mod.cpp.s
 .PHONY : src/add_markers_mod.cpp.s
 
+src/add_markers_service.o: src/add_markers_service.cpp.o
+
+.PHONY : src/add_markers_service.o
+
+# target to build an object file
+src/add_markers_service.cpp.o:
+	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f add_markers/CMakeFiles/add_markers_service.dir/build.make add_markers/CMakeFiles/add_markers_service.dir/src/add_markers_service.cpp.o
+.PHONY : src/add_markers_service.cpp.o
+
+src/add_markers_service.i: src/add_markers_service.cpp.i
+
+.PHONY : src/add_markers_service.i
+
+# target to preprocess a source file
+src/add_markers_service.cpp.i:
+	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f add_markers/CMakeFiles/add_markers_service.dir/build.make add_markers/CMakeFiles/add_markers_service.dir/src/add_markers_service.cpp.i
+.PHONY : src/add_markers_service.cpp.i
+
+src/add_markers_service.s: src/add_markers_service.cpp.s
+
+.PHONY : src/add_markers_service.s
+
+# target to generate assembly for a file
+src/add_markers_service.cpp.s:
+	cd /home/workspace/RSE/P5/workspace/catkin_ws/build && $(MAKE) -f add_markers/CMakeFiles/add_markers_service.dir/build.make add_markers/CMakeFiles/add_markers_service.dir/src/add_markers_service.cpp.s
+.PHONY : src/add_markers_service.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -635,6 +677,7 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... rebuild_cache"
+	@echo "... add_markers_service"
 	@echo "... add_markers_mod"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... test"
@@ -672,6 +715,9 @@ help:
 	@echo "... src/add_markers_mod.o"
 	@echo "... src/add_markers_mod.i"
 	@echo "... src/add_markers_mod.s"
+	@echo "... src/add_markers_service.o"
+	@echo "... src/add_markers_service.i"
+	@echo "... src/add_markers_service.s"
 .PHONY : help
 
 
