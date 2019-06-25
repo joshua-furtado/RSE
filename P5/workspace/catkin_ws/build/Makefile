@@ -298,6 +298,19 @@ _catkin_empty_exported_target/fast:
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
+# Target rules for targets named add_markers_mod
+
+# Build rule for target.
+add_markers_mod: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 add_markers_mod
+.PHONY : add_markers_mod
+
+# fast build rule for target.
+add_markers_mod/fast:
+	$(MAKE) -f add_markers/CMakeFiles/add_markers_mod.dir/build.make add_markers/CMakeFiles/add_markers_mod.dir/build
+.PHONY : add_markers_mod/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1815,6 +1828,7 @@ help:
 	@echo "... gtest_main"
 	@echo "... gtest"
 	@echo "... _catkin_empty_exported_target"
+	@echo "... add_markers_mod"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"

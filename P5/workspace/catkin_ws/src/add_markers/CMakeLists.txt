@@ -198,3 +198,6 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(add_markers src/add_markers.cpp)
 target_link_libraries(add_markers ${catkin_LIBRARIES})
+
+add_executable(add_markers_mod src/add_markers_mod.cpp)
+target_link_libraries(add_markers_mod ${catkin_LIBRARIES})

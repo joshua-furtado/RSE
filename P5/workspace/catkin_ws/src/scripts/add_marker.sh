@@ -5,4 +5,4 @@ xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; roslaunch turtlebot_gazebo
 sleep 5
 xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; roslaunch turtlebot_rviz_launchers view_marker.launch " &
 sleep 10
-xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; rosrun add_markers add_markers "
+xterm  -e "cd $(pwd)/../..; source devel/setup.bash ; rosrun add_markers add_markers_mod "
